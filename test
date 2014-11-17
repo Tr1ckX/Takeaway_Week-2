@@ -1,0 +1,21 @@
+require './lib/dish'
+require './lib/menu'
+require './lib/order'
+require './lib/customer'
+
+soup = Dish.new(3)
+rice = Dish.new(2)
+chicken = Dish.new(4)
+beef = Dish.new(5)
+
+menu = Menu.new
+menu.add_dish(soup)
+menu.add_dish(rice)
+menu.add_dish(chicken)
+menu.add_dish(beef)
+
+customer = Customer.new
+customer.new_order
+
+customer.order(beef, 2, menu)
+customer.order(soup, 3, menu)

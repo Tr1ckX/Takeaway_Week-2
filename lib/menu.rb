@@ -1,9 +1,15 @@
+require_relative 'dish'
+
 class Menu
 
-  attr_accessor :list
+  attr_reader :menu
 
   def initialize
-    @list = []
+    @menu = []
+  end
+
+  def add_dish(dish)
+    @menu << dish
   end
 
 end
