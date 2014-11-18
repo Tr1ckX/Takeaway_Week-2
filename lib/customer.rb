@@ -14,8 +14,9 @@ class Customer
       @my_order.add(dish, qty) if menu.menu.include?(dish)
     end
 
-    def place_order
-
+    def place_order(sum)
+      raise "Price not matching!" unless sum == @my_order.total_price
+      @my_order.ready!
     end
 
 end

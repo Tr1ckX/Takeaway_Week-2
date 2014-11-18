@@ -10,6 +10,10 @@ describe Order do
     expect(order.list).to eq([])
   end
 
+  it 'should not be ready when initialized' do
+    expect(order.ready?).to eq(false)
+  end
+
   it 'should add the dish to the list' do
     allow(qty).to receive(:times).and_return(1)
     allow(dish).to receive(:price).and_return(1)

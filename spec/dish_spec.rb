@@ -7,5 +7,4 @@ describe Dish do
   it 'should have a price when initialized' do
     expect(dish.price).to eq(3)
   end
-
 end
