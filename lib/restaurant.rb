@@ -1,0 +1,6 @@
+require
+
+class Restaurant
+
+
+end

@@ -2,14 +2,18 @@ require_relative 'dish'
 
 class Menu
 
-  attr_reader :menu
+  attr_reader :dishes
 
   def initialize
-    @menu = []
+    @dishes = []
   end
 
   def add_dish(dish)
-    @menu << dish
+    @dishes << dish
+  end
+
+  def delete_dish(dish)
+    @dishes.delete(dish)
   end
 
 end

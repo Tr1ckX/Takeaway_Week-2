@@ -1,6 +1,4 @@
 require_relative 'order'
-require_relative 'menu'
-require_relative 'dish'
 
 class Customer
 
@@ -11,7 +9,7 @@ class Customer
     end
 
     def order(dish, qty, menu)
-      @my_order.add(dish, qty) if menu.menu.include?(dish)
+      @my_order.add(dish, qty, menu)
     end
 
     def place_order(sum)

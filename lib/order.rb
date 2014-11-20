@@ -1,9 +1,9 @@
 require_relative 'dish'
+require_relative 'menu'
 
 class Order
 
-  attr_reader :list
-  attr_reader :total_price
+  attr_reader :list, :total_price
 
   def initialize
     @list = []
@@ -11,8 +11,8 @@ class Order
     @ready = false
   end
 
-  def add(dish, qty)
-    qty.times { @list << dish }
+  def add(dish, qty, menu)
+    qty.times { @list << dish } if menu.dishes.include?(dish)
     @total_price += dish.price * qty
   end
 

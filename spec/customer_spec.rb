@@ -18,8 +18,9 @@ describe Customer do
   end
 
   it 'should put his choice into his order' do
-    allow(menu).to receive(:menu)
-    allow(menu.menu).to receive(:include?).and_return(true)
+    allow_message_expectations_on_nil
+    allow(menu).to receive(:dishes)
+    allow(menu.dishes).to receive(:include?).and_return(true)
     expect(my_order).to receive(:add)
     customer.order(dish, qty, menu)
   end
