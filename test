@@ -3,6 +3,8 @@ require './lib/menu'
 require './lib/order'
 require './lib/customer'
 require './lib/message'
+require './lib/restaurant'
+
 
 soup = Dish.new('soup', 3)
 rice = Dish.new('rice', 2)
@@ -15,8 +17,11 @@ chinese.add_dish(rice)
 chinese.add_dish(chicken)
 chinese.add_dish(beef)
 
+Fudo = Restaurant.new
 Attila = Customer.new
 Attila.new_order
 
 Attila.order(beef, 2, chinese)
 Attila.order(soup, 3, chinese)
+
+Attila.place_order(19, Fudo, '+447518560812')

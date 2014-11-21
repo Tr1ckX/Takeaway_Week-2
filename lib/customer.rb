@@ -1,4 +1,4 @@
-require_relative 'order'
+# require_relative 'order'
 
 class Customer
 
@@ -12,9 +12,9 @@ class Customer
       @my_order.add(dish, qty, menu)
     end
 
-    def place_order(sum)
+    def place_order(sum, restaurant, customer_number)
       raise "Price not matching!" unless sum == @my_order.total_price
-      @my_order.ready!
+      restaurant.send_delivery(customer_number)
     end
 
 end

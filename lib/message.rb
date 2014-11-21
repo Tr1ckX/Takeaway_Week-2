@@ -9,10 +9,13 @@ class Message
   end
 
   def send(customer_number)
+
+    time = Time.now + Rational(3600)
+
     message = @client.account.messages.create(
         :from => ENV['MY_TWILIO_NUM'], # Replace with your Twilio number +441163262279
         :to => customer_number,     # Replace with your phone number
-        :body => 'test message friday')
+        :body => 'Your order will be with you before ' + time.strftime("%H:%M"))
   end
 
 end
