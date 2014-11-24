@@ -12,4 +12,8 @@ class Order
     @total_price += dish.price * qty
   end
 
+  def ready?
+    false
+  end
+
 end
