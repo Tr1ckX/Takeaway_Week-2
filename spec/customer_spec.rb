@@ -2,11 +2,13 @@ require './lib/customer'
 
 describe Customer do
 
-  let(:customer) { Customer.new     }
-  let(:my_order) { double :my_order }
-  let(:dish)     { double :dish     }
-  let(:qty)      { double :qty      }
-  let(:menu)     { double :menu     }
+  let(:customer)   { Customer.new       }
+  let(:my_order)   { double :my_order   }
+  let(:dish)       { double :dish       }
+  let(:qty)        { double :qty        }
+  let(:menu)       { double :menu       }
+  let(:restaurant) { double :restaurant }
+  let(:number)     { double :number     }
 
   before do
     allow(Order).to receive(:new).and_return(my_order)
@@ -27,13 +29,13 @@ describe Customer do
 
   it "should raise 'Price not matching!' error when wrong price set" do
     allow(my_order).to receive(:total_price).and_return(10)
-    expect(lambda {customer.place_order(11)}).to raise_error("Price not matching!")
+    expect(lambda {customer.place_order(11, restaurant, number)}).to raise_error("Price not matching!")
   end
 
-  it 'should have a ready order' do
+  it "should place an order at the restaurant" do
     allow(my_order).to receive(:total_price).and_return(10)
-    expect(my_order).to receive(:ready!)
-    customer.place_order(10)
+    expect(restaurant).to receive(:send_confirmation).with(number)
+    customer.place_order(10, restaurant, number)
   end
 
 end

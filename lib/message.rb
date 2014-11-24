@@ -1,6 +1,6 @@
 require 'twilio-ruby'
 
-class Message
+class TextMessage
 
   def initialize
     account_sid = ENV['MY_TWILIO_USER'] #'ACa952480953ebe43763c69d441b03d035'

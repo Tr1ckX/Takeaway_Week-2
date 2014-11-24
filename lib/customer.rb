@@ -14,7 +14,7 @@ class Customer
 
     def place_order(sum, restaurant, customer_number)
       raise "Price not matching!" unless sum == @my_order.total_price
-      restaurant.send_delivery(customer_number)
+      restaurant.send_confirmation(customer_number)
     end
 
 end

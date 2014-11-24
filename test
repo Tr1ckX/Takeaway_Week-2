@@ -10,6 +10,8 @@ soup = Dish.new('soup', 3)
 rice = Dish.new('rice', 2)
 chicken = Dish.new('chicken', 4)
 beef = Dish.new('beef', 5)
+pizza = Dish.new('pizza', 5)
+
 
 chinese = Menu.new
 chinese.add_dish(soup)
@@ -17,11 +19,22 @@ chinese.add_dish(rice)
 chinese.add_dish(chicken)
 chinese.add_dish(beef)
 
-Fudo = Restaurant.new
-Attila = Customer.new
-Attila.new_order
+italian = Menu.new
+italian.add_dish(pizza)
 
-Attila.order(beef, 2, chinese)
-Attila.order(soup, 3, chinese)
+carlo = Restaurant.new(italian)
 
-Attila.place_order(19, Fudo, '+447518560812')
+fudo = Restaurant.new(chinese)
+attilla = Customer.new("Attila","+448768")
+
+
+order = Order.new(fudo,attila)
+order.add_item(beef, 2)
+order.add_item(pizza, 3)
+
+order.place_order(19)
+
+
+it_order = Order.new(carlos,attila)
+it_order.add_item(pizza,1)
+it_order.place_order(5)

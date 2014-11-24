@@ -11,10 +11,6 @@ describe Order do
     expect(order.list).to eq([])
   end
 
-  it 'should not be ready when initialized' do
-    expect(order.ready?).to eq(false)
-  end
-
   it 'should add the dish to the list' do
     allow_message_expectations_on_nil
     allow(qty).to receive(:times).and_return(1)

@@ -1,7 +1,7 @@
 class Restaurant
 
-  def send_delivery(customer_number)
-    text = Message.new
+  def send_confirmation(customer_number)
+    text = TextMessage.new
     text.send(customer_number)
   end
 
