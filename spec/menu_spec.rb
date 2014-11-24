@@ -19,5 +19,11 @@ describe Menu do
     expect(menu.dishes).to eq([])
   end
 
+  it 'should know if it includes a dish' do
+    expect(menu.include_dish?(dish)).to be(false)
+    menu.add_dish(dish)
+    expect(menu.include_dish?(dish)).to be(true)
+  end
+
 
 end
