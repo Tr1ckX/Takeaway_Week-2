@@ -7,9 +7,12 @@ class Order
     @total_price = 0
   end
 
-  def add(dish, qty, menu)
-    qty.times { @list << dish } if menu.dishes.include?(dish)
-    @total_price += dish.price * qty
+  def add(dish, qty)
+    qty.times { @list << dish } 
+  end
+
+  def total_price
+    total_price = @list.reduce(0) {|sum, dish| sum + dish.price}
   end
 
   def ready?
