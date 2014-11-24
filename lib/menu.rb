@@ -18,8 +18,4 @@ class Menu
     @dishes.each{ |dish| puts dish.name, dish.price }
   end
 
-  def include_dish?(dish)
-    @dishes.include?(dish)
-  end
-
 end
