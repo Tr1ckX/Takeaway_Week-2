@@ -1,10 +1,9 @@
-require './lib/dish'
-require './lib/menu'
-require './lib/order'
-require './lib/customer'
-require './lib/message'
-require './lib/restaurant'
-
+load './lib/dish.rb'
+load './lib/menu.rb'
+load './lib/order.rb'
+load './lib/customer.rb'
+load './lib/message.rb'
+load './lib/restaurant.rb'
 
 soup = Dish.new('soup', 3)
 rice = Dish.new('rice', 2)
@@ -12,29 +11,46 @@ chicken = Dish.new('chicken', 4)
 beef = Dish.new('beef', 5)
 pizza = Dish.new('pizza', 5)
 
-
 chinese = Menu.new
 chinese.add_dish(soup)
 chinese.add_dish(rice)
 chinese.add_dish(chicken)
 chinese.add_dish(beef)
 
-italian = Menu.new
-italian.add_dish(pizza)
-
-carlo = Restaurant.new(italian)
-
 fudo = Restaurant.new(chinese)
-attilla = Customer.new("Attila","+448768")
+
+attila = Customer.new('+447518560812')
+
+attila.create_order
+
+attila.add_item(soup,1)
+attila.add_item(beef,2)
 
 
-order = Order.new(fudo,attila)
-order.add_item(beef, 2)
-order.add_item(pizza, 3)
-
-order.place_order(19)
+attila.place_order(13, fudo)
 
 
-it_order = Order.new(carlos,attila)
-it_order.add_item(pizza,1)
-it_order.place_order(5)
+class Order1
+  attr_reader :items
+
+  def initialize()
+    @items = {}
+  end
+
+  def add(dish, qty)
+    @items[dish] = qty
+  end
+
+  def place!(total)
+    raise "Wrong total!" unless total == total_price
+  end
+
+  private
+
+  def total_price
+    @items.inject(0) do |total, (dish, qty)|
+      total + dish.price * qty
+    end
+  end
+
+end

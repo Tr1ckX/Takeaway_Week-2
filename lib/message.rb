@@ -3,8 +3,8 @@ require 'twilio-ruby'
 class TextMessage
 
   def initialize
-    account_sid = ENV['MY_TWILIO_USER'] #'ACa952480953ebe43763c69d441b03d035'
-    auth_token = ENV['MY_TWILIO_PASS']  #'5bb653f18946093bdf44b6c39f5416e1'
+    account_sid = ENV['MY_TWILIO_USER']
+    auth_token = ENV['MY_TWILIO_PASS']
     @client = Twilio::REST::Client.new account_sid, auth_token
   end
 
@@ -13,8 +13,8 @@ class TextMessage
     time = Time.now + Rational(3600)
 
     message = @client.account.messages.create(
-        :from => ENV['MY_TWILIO_NUM'], # Replace with your Twilio number +441163262279
-        :to => customer_number,     # Replace with your phone number
+        :from => ENV['MY_TWILIO_NUM'],
+        :to => customer_number,
         :body => 'Your order will be with you before ' + time.strftime("%H:%M"))
   end
 

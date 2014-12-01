@@ -1,20 +1,24 @@
-# require_relative 'order'
-
 class Customer
 
-    attr_reader :my_order
+    attr_reader :order, :phone_number
 
-    def new_order
-      @my_order = Order.new
+    def initialize(phone_number)
+      @phone_number = phone_number
     end
 
-    def order(dish, qty, menu)
-      @my_order.add(dish, qty, menu)
+    def create_order
+      @order = Order.new
     end
 
-    def place_order(sum, restaurant, customer_number)
-      raise "Price not matching!" unless sum == @my_order.total_price
-      restaurant.send_confirmation(customer_number)
+    def add_item(dish, qty)
+      @order.add(dish, qty)
     end
 
+    def place_order(total, restaurant)
+      if (total == order.total)
+        restaurant.send_order(@phone_number)
+      else
+        raise "Wrong total!"
+      end
+    end
 end

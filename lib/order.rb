@@ -1,15 +1,23 @@
 class Order
 
-  attr_reader :list, :total_price
+  attr_reader :items
 
   def initialize
-    @list = []
-    @total_price = 0
+    @items = {}
   end
 
-  def add(dish, qty, menu)
-    qty.times { @list << dish } if menu.dishes.include?(dish)
-    @total_price += dish.price * qty
+  def add(dish, qty)
+    @items[dish] = qty
+  end
+
+  def total
+    @items.inject(0) do |total, (dish, qty)|
+      total + dish.price * qty
+    end
+  end
+
+  def list
+    @items.each{ |k,v| puts k,v }
   end
 
 end
