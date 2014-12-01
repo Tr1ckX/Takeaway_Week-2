@@ -17,7 +17,7 @@ class Order
   end
 
   def list
-    @items.each{ |k,v| puts k,v }
+    @items.each{ |k,v| puts k.name,v }
   end
 
 end

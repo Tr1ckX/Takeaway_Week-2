@@ -3,7 +3,7 @@ require './lib/menu'
 describe Menu do
 
   let(:menu)    { Menu.new }
-  let(:dish)    { :dish    }
+  let(:dish)    { double :dish }
 
   it 'should be empty when initialzed' do
     expect(menu.dishes).to eq([])
@@ -19,10 +19,5 @@ describe Menu do
     menu.delete_dish(dish)
     expect(menu.dishes).to eq([])
   end
-
-  it "should list the dishes' name and price" do
-
-  end
-
 
 end

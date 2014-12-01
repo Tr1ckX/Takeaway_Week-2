@@ -3,32 +3,24 @@ require './lib/order'
 describe Order do
 
   let(:order)    { Order.new    }
-  let(:dish)     { double :dish }
+  let(:dish)     { double :dish, :price => 2 }
   let(:qty)      { double :qty  }
   let(:menu)     { double :menu }
 
   it 'should be empty when initialzed' do
-    expect(order.list).to eq([])
+    expect(order.items).to eq({})
   end
 
   it 'should add the dish to the list' do
-    allow_message_expectations_on_nil
-    allow(qty).to receive(:times).and_return(1)
-    allow(dish).to receive(:price).and_return(1)
-    allow(menu).to receive(:dishes)
-    allow(menu.dishes).to receive(:include?).and_return(true)
-    order.add(dish, 1, menu)
-    expect(order.list).to eq([dish])
+    allow(dish).to receive(:name)
+    order.add(dish, 1)
+    expect(order.list).to eq({dish=>1})
   end
 
-  it 'should increase the total price with price * qty' do
-    allow_message_expectations_on_nil
-    allow(qty).to receive(:times).and_return(1)
-    allow(dish).to receive(:price).and_return(2)
-    allow(menu).to receive(:dishes)
-    allow(menu.dishes).to receive(:include?).and_return(true)
-    order.add(dish, 3, menu)
-    expect(order.total_price).to eq(6)
+  it 'should return the total price' do
+    order.add(dish, 2)
+    expect(order.total).to eq(4)
+    order.total
   end
 
 
