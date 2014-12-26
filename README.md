@@ -11,5 +11,5 @@ Takeaway app
 
 Design a food takeaway application, use Twilio to confirm the order.<br>
     - how to use ruby gems. 'All that glitters is not gold'<br>
-    - The APIs.  Read, read and read. Specially the documentiation. If you find one...
+    - The APIs.  Read, read and read. Specially the documentiation. If you find one...<br>
     - ENV VARS. How not to share some information.
