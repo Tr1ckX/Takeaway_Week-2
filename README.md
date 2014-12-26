@@ -10,5 +10,5 @@ Takeaway app
 <h5> Second week Challenge at [Makers Academy](http://www.makersacademy.com)
 
 Design a food takeaway application, using Twilio to confirm the order.<br>
-    - how to use ruby gems. 'All that glitters is not gold'
+    - how to use ruby gems. 'All that glitters is not gold'<br>
     - The APIs.  Read, read and read. Specially the documentiation. If you find one...
